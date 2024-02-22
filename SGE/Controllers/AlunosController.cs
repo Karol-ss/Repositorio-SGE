@@ -95,7 +95,7 @@ namespace SGE.Controllers
                 }
             }
 
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioId");
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuariId");
             return View();
         }
 
