@@ -40,7 +40,7 @@
         </form>
 
 
-        <form asp-action="Edit" asp-route-id="@Model.AlunoId"> 
+        <form asp-action="Edit" asp-route-id="@Model.AlunoId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="AlunoId" />
             <div class="form-group">
@@ -90,7 +90,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" value="@Model.Senha"  class="form-control" />
+                <input asp-for="Senha" value="@Model.Senha" class="form-control" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -109,7 +109,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DataCadastro" class="control-label"></label>
-                <input asp-for="DataCadastro" class="form-control" readonly/>
+                <input asp-for="DataCadastro" class="form-control" readonly />
 
             </div>
             <div class="form-group">
