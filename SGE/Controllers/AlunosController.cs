@@ -380,7 +380,7 @@ namespace SGE.Controllers
                 /** Exibe a nova imagem na view **/
                 var imageBytes = await System.IO.File.ReadAllBytesAsync(filePath); // Carrega a imagem em memória
                 var imageBase64 = Convert.ToBase64String(imageBytes); // Converte a imagem para Base64
-                ViewData["Imagem"] = imageBase64; // Exibe a imagem na view
+                ViewData["Imagem"] = imageBase64;
 
             }
             Guid idTipo = _context.TiposUsuario.Where(a => a.Tipo == "Aluno")
