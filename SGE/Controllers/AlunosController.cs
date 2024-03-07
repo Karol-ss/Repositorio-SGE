@@ -158,7 +158,7 @@ namespace SGE.Controllers
                 usuario.Email = aluno.Email;
                 usuario.Senha = aluno.Senha;
                 usuario.Celular = aluno.Celular;
-                usuario.CadAtivo = true;
+                usuario.CadAtivo = false;
                 usuario.DataCadastro = DateTime.Now;
                 usuario.TipoUsuarioId = _context.TiposUsuario.Where(a => a.Tipo == "Aluno").FirstOrDefault().TipoUsuarioId;
                 usuario.TipoUsuario = _context.TiposUsuario.Where(a => a.Tipo == "Aluno").FirstOrDefault();
@@ -341,7 +341,7 @@ namespace SGE.Controllers
                 usuario.CadInativo = DateTime.Now;
                 _context.Alunos.Update(aluno);
                 _context.Usuarios.Update(usuario);
-                //_context.Alunos.Remove(aluno);
+                _context.Alunos.Remove(aluno);
             }
 
             await _context.SaveChangesAsync();
