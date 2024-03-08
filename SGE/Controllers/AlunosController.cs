@@ -119,14 +119,6 @@ namespace SGE.Controllers
                     ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioId", aluno.TipoUsuarioId);
                     return View(aluno);
                 }
-                if (aluno.Senha != ConfirmeSenha)
-                {
-                    ViewData["Erro"] = "As Senhas não conferem!";
-                    ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioId", aluno.TipoUsuarioId);
-                    return View(aluno);
-                }
-
-
                 aluno.AlunoId = Guid.NewGuid();
                 if (UrlFoto != null && UrlFoto.Length > 0)
                 {
@@ -142,7 +134,7 @@ namespace SGE.Controllers
                     aluno.UrlFoto = newFileName; // Atualiza o campo UrlFoto com o novo nome do arquivo
                 }
 
-                aluno.CadAtivo = true;
+                aluno.CadAtivo = false;
                 aluno.DataCadastro = DateTime.Now;
                 TipoUsuario tipoUsuario = _context.TiposUsuario
                     .Where(a => a.Tipo == "Aluno")
@@ -151,14 +143,14 @@ namespace SGE.Controllers
                 aluno.TipoUsuario = tipoUsuario;
 
                 _context.Add(aluno);
-                await _context.SaveChangesAsync();
+
                 Usuario usuario = new Usuario();
                 usuario.UsuarioId = Guid.NewGuid();
                 usuario.UsuarioNome = aluno.AlunoNome;
                 usuario.Email = aluno.Email;
                 usuario.Senha = aluno.Senha;
                 usuario.Celular = aluno.Celular;
-                usuario.CadAtivo = true;
+                usuario.CadAtivo = false;
                 usuario.DataCadastro = DateTime.Now;
                 usuario.TipoUsuarioId = _context.TiposUsuario.Where(a => a.Tipo == "Aluno").FirstOrDefault().TipoUsuarioId;
                 usuario.TipoUsuario = _context.TiposUsuario.Where(a => a.Tipo == "Aluno").FirstOrDefault();
@@ -341,7 +333,7 @@ namespace SGE.Controllers
                 usuario.CadInativo = DateTime.Now;
                 _context.Alunos.Update(aluno);
                 _context.Usuarios.Update(usuario);
-                //_context.Alunos.Remove(aluno);
+                _context.Alunos.Remove(aluno);
             }
 
             await _context.SaveChangesAsync();
