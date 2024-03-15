@@ -7,7 +7,7 @@
 
     <div class="text-decoration-none">
         <div class="card border border-2 rounded-5 text-light bg-transparent" style="box-shadow: -15px 15px 12px rgba(0,0,0,0.35); height:160px;width:160px">
-            <img class="card-body pb-0 h-75" src="./img/Turmas.svg" />
+            <img class="card-body pb-0 h-75" src="/img/Turmas.svg" />
         </div>
     </div>
     <h4 class="text-light">Turma/Criar</h4>
@@ -20,7 +20,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">
-                    <img src="./img/NomeTurma.svg" />
+                    <img src="/img/NomeTurma.svg" />
                 </span>
                 <input asp-for="TurmaNome" class="form-control" />
             </div>
@@ -45,11 +45,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="DataInicio" class="control-label"></label>
-                <input asp-for="DataInicio" class="form-control" />
+                <input asp-for="DataInicio" class="form-control" type="date" />
                 <span asp-validation-for="DataInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="DataFim" class="form-control" type="hidden" />
+                <label asp-for="DataFim" class="control-label"></label>
+                <input asp-for="DataFim" class="form-control" type="date" />
+                <span asp-validation-for="DataFim" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -18,6 +18,5 @@ html {
 }
 
 body {
-    height: 90vh;
-    background: url(../img/fundoRoxo.png) center/cover no-repeat
+    background: url(../img/fundoRoxo.png) center/cover no-repeat fixed;
 }

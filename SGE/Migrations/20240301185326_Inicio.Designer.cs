@@ -12,7 +12,7 @@ using SGE.Data;
 namespace SGE.Migrations
 {
     [DbContext(typeof(SGEContext))]
-    [Migration("20240229112441_Inicio")]
+    [Migration("20240301185326_Inicio")]
     partial class Inicio
     {
         /// <inheritdoc />
@@ -317,7 +317,8 @@ namespace SGE.Migrations
 
                     b.Property<string>("Celular")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");

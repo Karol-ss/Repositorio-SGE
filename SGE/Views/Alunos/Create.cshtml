@@ -51,20 +51,31 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="Logradouro" class="form-control" type="hidden" />
+                <label asp-for="Logradouro" class="control-label"></label>
+                <input asp-for="Logradouro" class="form-control" type="text" />
+                <span asp-validation-for="Logradouro" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input asp-for="Numero" class="form-control" type="hidden" />
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" type="text" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" class="form-control" type="text" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
 
-                <input asp-for="Cidade" class="form-control" type="hidden" />
             </div>
             <div class="form-group">
-                <input asp-for="Estado" class="form-control" type="hidden" />
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" type="text" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+
             </div>
             <div class="form-group">
-                <input asp-for="CEP" class="form-control" type="hidden" />
+                <label asp-for="CEP" class="control-label"></label>
+                <input asp-for="CEP" class="form-control" type="text" />
+                <span asp-validation-for="CEP" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Senha" class="control-label"></label>
@@ -72,7 +83,10 @@
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input id="ConfirmeSenha" type="hidden" name="ConfirmeSenha" class="form-control" />
+                <label>
+                    Confirme a Senha
+                </label>
+                <input id="ConfirmeSenha" type="text" name="ConfirmeSenha" class="form-control" />
             </div>
 
             <div class="form-group form-switch mt-3">
