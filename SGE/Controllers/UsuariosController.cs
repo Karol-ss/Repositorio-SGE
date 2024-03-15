@@ -93,7 +93,7 @@ namespace SGE.Controllers
                 }
             }
 
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioNome");
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo");
             return View();
         }
 
@@ -111,7 +111,7 @@ namespace SGE.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioNome", usuario.TipoUsuarioId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
             return View(usuario);
         }
 
@@ -144,7 +144,7 @@ namespace SGE.Controllers
                 return NotFound();
             }
 
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioNome", usuario.TipoUsuarioId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
             return View(usuario);
         }
 
@@ -169,12 +169,12 @@ namespace SGE.Controllers
             if (usuario.TipoUsuarioId == _context.TiposUsuario.FirstOrDefault(a => a.Tipo == "Aluno").TipoUsuarioId)
             {
                 Aluno aluno = _context.Alunos.Where(a => a.Email == usuario.Email).FirstOrDefault();
-                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioNome", usuario.TipoUsuarioId);
+                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
                 return RedirectToAction("Edit", "Alunos", new { id = aluno.AlunoId });
             }
             else
             {
-                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioNome", usuario.TipoUsuarioId);
+                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
                 return RedirectToAction("Edit", "Usuarios", new { id = usuario.UsuarioId });
             }
         }
@@ -194,7 +194,7 @@ namespace SGE.Controllers
             if (_context.Usuarios.FirstOrDefault(u => u.UsuarioNome == "Administrador").UsuarioId == id)
             {
                 ViewData["Erro"] = "Não é possível Editar o usuário Administrador";
-                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioNome", usuario.TipoUsuarioId);
+                ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
                 return View();
             }
 
@@ -241,7 +241,7 @@ namespace SGE.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "TipoUsuarioNome", usuario.TipoUsuarioId);
+            ViewData["TipoUsuarioId"] = new SelectList(_context.TiposUsuario, "TipoUsuarioId", "Tipo", usuario.TipoUsuarioId);
             return View(usuario);
         }
 
