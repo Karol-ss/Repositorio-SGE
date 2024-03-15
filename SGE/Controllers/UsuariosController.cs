@@ -291,17 +291,20 @@ namespace SGE.Controllers
                 return View(usuario);
             }
 
-            var aluno = _context.Alunos.Where(a => a.Email == usuario.Email).FirstOrDefault();
-            if (usuario != null)
+            if (usuario.TipoUsuarioId == _context.TiposUsuario.Where(t => t.Tipo == "Aluno").FirstOrDefault().TipoUsuarioId)
             {
-                aluno.CadAtivo = true;
-                aluno.CadInativo = DateTime.Now;
-                usuario.CadAtivo = false;
-                usuario.CadInativo = DateTime.Now;
-                _context.Alunos.Update(aluno);
-                _context.Update(aluno);
-                _context.Usuarios.Remove(usuario);
-                await _context.SaveChangesAsync();
+                var aluno = _context.Alunos.Where(a => a.Email == _context.Usuarios.Where(u => u.UsuarioId == usuario.UsuarioId).FirstOrDefault().Email).FirstOrDefault();
+                if (usuario != null)
+                {
+                    aluno.CadAtivo = true;
+                    aluno.CadInativo = DateTime.Now;
+                    usuario.CadAtivo = false;
+                    usuario.CadInativo = DateTime.Now;
+                    _context.Alunos.Update(aluno);
+                    _context.Update(aluno);
+                    _context.Usuarios.Remove(usuario);
+                    await _context.SaveChangesAsync();
+                }
             }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
