@@ -115,7 +115,7 @@ namespace SGE.Controllers
                 sala.SalaId = Guid.NewGuid();
                 _context.Add(sala);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Reservas", "ReservasSala");
             }
             return View(sala);
         }

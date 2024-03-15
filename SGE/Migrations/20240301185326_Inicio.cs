@@ -110,7 +110,7 @@ namespace SGE.Migrations
                     UsuarioNome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Senha = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Celular = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Celular = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     CadAtivo = table.Column<bool>(type: "bit", nullable: false),
                     DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CadInativo = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -176,19 +176,19 @@ namespace SGE.Migrations
                         column: x => x.AlunoId,
                         principalTable: "Aluno",
                         principalColumn: "AlunoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Ocorrencia_TipoOcorrencia_TipoOcorrenciaId",
                         column: x => x.TipoOcorrenciaId,
                         principalTable: "TipoOcorrencia",
                         principalColumn: "TipoOcorrenciaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Ocorrencia_Usuario_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuario",
                         principalColumn: "UsuarioId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(

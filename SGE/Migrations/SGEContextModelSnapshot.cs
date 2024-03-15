@@ -314,7 +314,8 @@ namespace SGE.Migrations
 
                     b.Property<string>("Celular")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");

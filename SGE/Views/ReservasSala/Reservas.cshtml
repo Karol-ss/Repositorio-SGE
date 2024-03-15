@@ -10,7 +10,8 @@
 
 
 <div class="container">
-    <h1 class="text-center">Reservas de Salas</h1>
+    <h1 class="col-10 text-center">Reservas de Salas</h1>
+    <a class="btn btn-outline-success" asp-controller="Salas" asp-action="Create">Nova Sala"</a>
     @if (ViewData["Erro"] != null)
     {
         <div class="row">
