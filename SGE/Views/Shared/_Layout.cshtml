@@ -70,6 +70,12 @@
                         <a class="btn btn-outline-light text-light rounded-pill d-flex align-items-center justify-content-center" asp-area="" asp-controller="Home" asp-action="Login" asp-route-id="@Context.Session.GetString("usuarioId")" style="width:141px; height:50px;">Login</a>
                     </div>
                 }
+                else
+                {
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-outline-light text-dark" asp-area="" asp-controller="Home" asp-action="Login" asp-route-id="@Context.Session.GetString("usuarioId")">Login</a>
+                    </div>
+                }
             </div>
         </nav>
     </header>
