@@ -35,7 +35,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white bg-transparent">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img src="~/img/logosge.png" /> </a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/img/logo.png" class="w-100" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -88,12 +90,6 @@
 
                             <a class="btn btn-outline-light text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
                         </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-outline-light text-dark" asp-area="" asp-controller="Home" asp-action="Login" asp-route-id="@Context.Session.GetString("usuarioId")">Login</a>
                     </div>
                 }
             </div>
