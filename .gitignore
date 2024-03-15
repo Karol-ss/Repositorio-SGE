@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/SGE/appsettings.json
+/.gitignore
+/SGE/Properties/launchSettings.json
