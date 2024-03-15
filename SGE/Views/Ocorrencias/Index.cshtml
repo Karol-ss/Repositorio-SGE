@@ -4,74 +4,93 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoOcorrencia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataOcorrencia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CadAtivo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CadInativo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Finalizado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataFinalizado)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoOcorrencia.TipoOcorrenciaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario.UsuarioId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataOcorrencia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CadAtivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CadInativo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Finalizado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataFinalizado)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OcorrenciaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OcorrenciaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OcorrenciaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container-xl" style="margin-top: 50px;">
+
+    <div class="d-flex flex-row align-items-center mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16 " style="color: #fff; border:91px;">
+            <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
+            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
+        </svg>
+
+        <h3>
+            <a asp-action="Create" style=" color: #fff; padding: 15px; font-size:40px">Criar Nova Ocorrência </a>
+        </h3>
+    </div>
+
+    <table class="table table-bordered table-hover border-black" style="border-radius:30px">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoOcorrencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usuario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataOcorrencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CadAtivo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CadInativo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Finalizado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataFinalizado)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoOcorrencia.TipoOcorrenciaId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario.UsuarioId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataOcorrencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CadAtivo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CadInativo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Finalizado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataFinalizado)
+                    </td>
+                    <td style="display:flex; flex-direction:column; gap: 1;">
+                        <a asp-action="Edit" class="btn btn-light" asp-route-id="@item.OcorrenciaId" style="text-decoration:none;">
+                            <svg class="mx-2" bootstrap-icon="PencilFill" width="13" height="13" aria-label="Alarms"></svg>
+                        </a> |
+                        <a asp-action="Details" class="btn btn-light" asp-route-id="@item.OcorrenciaId" style="text-decoration:none">
+
+                            <svg class="mx-2" bootstrap-icon="CardList" width="13" height="13" aria-label="Alarms"></svg>
+                        </a> |
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.OcorrenciaId" style="text-decoration:none;">
+                            <svg class="mx-2" bootstrap-icon="Trash" width="13" height="13" aria-label="Alarms"></svg>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
