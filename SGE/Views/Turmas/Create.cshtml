@@ -3,13 +3,22 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="d-flex align-items-center">
 
-<h1>Create</h1>
+    <a class="text-decoration-none" asp-area="" asp-controller="Alunos" asp-action="Index">
+        <div class="card border border-2 rounded-5 text-light bg-transparent" style="box-shadow: -15px 15px 12px rgba(0,0,0,0.35); height:250px;width:250px">
+            <img class="card-body pb-0 h-75" src="./img/aluno.svg" />
+            <div class="pt-0 border-0 bg-transparent pb-4" style="font-size:30px">
+                Alunos
+            </div>
+        </div>
+    </a>
+    <h4 class="text-light">Turma/Criar</h4>
+</div>
 
-<h4>Turma</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 text-light">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -33,8 +42,7 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="CadInativo" class="control-label"></label>
-                <input asp-for="CadInativo" class="form-control" />
+                <input asp-for="CadInativo" class="form-control" type="hidden" />
                 <span asp-validation-for="CadInativo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,14 +51,7 @@
                 <span asp-validation-for="DataInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DataFim" class="control-label"></label>
-                <input asp-for="DataFim" class="form-control" />
-                <span asp-validation-for="DataFim" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="TurmaEncerrada" /> @Html.DisplayNameFor(model => model.TurmaEncerrada)
-                </label>
+                <input asp-for="DataFim" class="form-control" type="hidden" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -60,9 +61,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
